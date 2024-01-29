@@ -1,0 +1,129 @@
+/* Import a Google Font that closely matches the image */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+  height: 50%;
+  margin: 0;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212121; /* Dark background */
+  font-family: 'Roboto', sans-serif; /* Updated font */
+  color: #ffffff; /* Light text */
+
+}
+
+
+.Game {
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #333333; /* Darker background for the container */
+  width: 90%; /* Container width */
+  max-width: 700px; /* Maximum width */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center;
+  align-items: center;
+    border: 1px solid #f50057; /* Neon pink border */
+}
+
+
+
+
+.bingo-container {
+  text-align: center;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #333333; /* Darker background for the container */
+  width: 100%; /* Container width */
+  max-width: 700px; /* Maximum width */
+}
+
+#bingo-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-bottom: 30px;
+}
+
+.bingo-cell {
+  background-color: #424242; /* Dark cell background */
+  color: #f50057; /* Neon pink text */
+  border: 1px solid #f50057; /* Neon pink border */
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  height: 150px; /* Adjust cell height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For positioning the checkmark or overlay */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+
+
+.bingo-cell img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px; /* Rounded corners for images */
+}
+
+.bingo-cell.marked::after {
+  content: '✓';
+  color: #c51162; /* Green check mark */
+  position: absolute;
+  font-size: 4rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+ 
+}
+
+.bingo-cell:hover {
+  transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+#refresh-button {
+  background-color: #f50057; /* Neon pink button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  margin-top: 20px; /* Space above the button */
+  align-self: center;
+
+}
+
+#refresh-button:hover {
+  background-color: #c51162; /* Darker shade on hover */
+}
+
+/* Position the bingo-message above the game */
+#bingo-message {
+  color: #f50057; /* Neon pink message */
+  font-size: 24px;
+  margin-bottom: 20px; /* Space below the message */
+  /* Hide by default, show when there's a message */
+}
+/* Add a neon glow effect to titles and important text */
+.neon-text {
+  text-shadow:
+    0 0 7px #f50057,
+    0 0 10px #f50057,
+    0 0 21px #f50057,
+    0 0 42px #f50057;
+}
+
+
+
+/* Additional styles for layout and aesthetics, if necessary */
+/* ... */
