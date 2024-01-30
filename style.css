@@ -40,13 +40,13 @@ body, html {
   align-items: center;
 }
 
+
 #bingo-card {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns with flexible sizes */
   grid-gap: 15px;
   margin-bottom: 30px;
 }
-
 
 
 
@@ -61,20 +61,21 @@ body, html {
 
 
 
+
 .bingo-cell {
   position: relative;
   color: white;
-  font-weight: bolder; /* Text color */
+  font-weight: bolder;
   border: 2px solid #6e0500; /* Adjust the border color if needed */
   padding: 20px;
   font-size: 1rem;
   border-radius: 10px;
-  height: 150px;
+  height: auto; /* Adjusted from fixed height to auto */
+  aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer; /* To indicate the cells are clickable */
-  margin: 10px; /* Adjust as needed for spacing */
   box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
   transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
 }
@@ -90,6 +91,7 @@ body, html {
 #bingo-card {
   grid-gap: 15px;
 }
+
 
 /* Additional responsive styles if needed */
 
@@ -180,3 +182,6 @@ body, html {
     font-size: 0.6rem; /* Reduce font size for mobile screens */
   }
 }
+
+
+
