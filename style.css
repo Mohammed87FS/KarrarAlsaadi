@@ -7,68 +7,93 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensures the entire viewport height is covered */
-  background-color: #212121; /* Dark background for contrast */
-  font-family: 'Roboto', sans-serif; /* Roboto font for a modern look */
-  color: #ffffff; /* White text for readability */
+  min-height: 100vh;
+  background-color: #212121;
+  font-family: 'Roboto', sans-serif;
+  color: #ffffff;
 }
 
 .Game {
-  text-align: center; /* Centers text inside the Game div */
-  padding: 2rem; /* Adds padding around the content for spacing */
-  border-radius: 20px; /* Rounded corners for a softer look */
-  background-color: #212121; /* Slightly lighter than the body background for contrast */
-  width: 80%; /* Occupies 80% of the parent width */
-  max-width: 700px; /* Maximum width to avoid overly wide layouts on large screens */
-  display: flex; /* Enables flexbox layout */
-  flex-direction: column; /* Stacks child elements vertically */
-  justify-content: center; /* Centers child elements vertically */
-  align-items: center; /* Centers child elements horizontally */
-  border: 1px solid #f50057; /* Neon pink border for a pop of color */
+  text-align: center;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: #212121;
+  width: 80%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f50057;
 }
 
 .bingo-container {
-  padding: 2rem; /* Adds padding around the bingo content for spacing */
-  border-radius: 20px; /* Rounded corners to match the Game div */
-  background-color: #212121; /* Matches the Game div for consistency */
-  width: 100%; /* Occupies the full width of its parent */
-  max-width: 700px; /* Matches the Game div to maintain consistent sizing */
-  margin: 0 auto; /* Auto margins on the sides to center it horizontally */
-  display: flex; /* Enables flexbox layout within the bingo container */
-  flex-direction: column; /* Stacks child elements vertically */
-  justify-content: center; /* Centers child elements vertically within the container */
-  align-items: center; /* Centers child elements horizontally within the container */
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: #212121;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #bingo-card {
-  display: grid; /* Uses grid layout for bingo cells */
-  grid-template-columns: repeat(3, 1fr); /* Creates three columns */
-  grid-gap: 15px; /* Adds gaps between grid items */
-  margin-bottom: 30px; /* Adds space below the bingo card */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  margin-bottom: 30px;
 }
+
+
+
+
+
+.bingo-cell:nth-child(odd) {
+  background-color: #3b114e; /* Violet color for odd cells */
+}
+
+.bingo-cell:nth-child(even) {
+  background-color: #e9addf; /* Red color for even cells */
+}
+
+
 
 .bingo-cell {
-  background-color: #424242; /* Darker cell background for contrast */
-  color: #f50057; /* Neon pink text for consistency with the theme */
-  border: 1px solid #f50057; /* Neon pink border to match the text */
-  padding: 20px; /* Padding inside each cell for spacing */
-  font-size: 1rem; /* Sets a base font size for consistency */
-  border-radius: 10px; /* Rounded corners for the cells */
-  height: 150px; /* Fixed height for uniformity */
-  display: flex; /* Enables flexbox layout within each cell */
-  justify-content: center; /* Centers cell content horizontally */
-  align-items: center; /* Centers cell content vertically */
-  position: relative; /* Allows absolute positioning of child elements like the checkmark */
-  transition: transform 0.2s; /* Smooth transition for hover effects */
+  position: relative;
+  color: white;
+  font-weight: bolder; /* Text color */
+  border: 2px solid #6e0500; /* Adjust the border color if needed */
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* To indicate the cells are clickable */
+  margin: 10px; /* Adjust as needed for spacing */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Soft shadow for depth */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition for hover effects */
 }
 
 
-
-.bingo-cell img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 5px;
+.bingo-cell:hover {
+  transform: scale(1.05); /* Slight scale-up effect on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Increased shadow on hover for depth */
 }
+
+
+/* Ensure the #bingo-card element has a grid gap to match your design */
+#bingo-card {
+  grid-gap: 15px;
+}
+
+/* Additional responsive styles if needed */
+
+
 
 .bingo-cell.marked::after {
   content: '✓';
@@ -90,7 +115,7 @@ body, html {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 1rem; /* Responsive font size */
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
   margin-top: 20px;
@@ -103,7 +128,13 @@ body, html {
 
 #bingo-message {
   color: #f50057;
-  font-size: 1.5rem; /* Larger font size for visibility */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+#bingo-datum {
+  color: #f50057;
+  font-size: 2rem;
   margin-bottom: 20px;
 }
 
@@ -115,48 +146,37 @@ body, html {
     0 0 42px #f50057;
 }
 
-/* Responsive adjustments */
+
+/* Responsive adjustments for smaller screens while maintaining the 3-column layout */
 @media (max-width: 768px) {
-  #bingo-card {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+  .Game, .bingo-container {
+    padding: 1rem; /* Reduce padding */
+    width: 95%; /* Increase width to use more of the screen */
   }
 
   .bingo-cell {
-    font-size: 0.9rem; /* Slightly smaller font size */
-    height: 120px; /* Adjusted height */
+    font-size: 0.7rem; /* Smaller font size for medium screens */
+    padding: 15px; /* Adjust padding to reduce cell size */
+    height: 120px; /* Adjusted height for medium screens */
   }
 
-  .Game, .bingo-container {
-    padding: 1rem; /* Reduced padding */
-    width: 95%; /* Increased width for smaller screens */
-  }
-
-  #refresh-button, #bingo-message {
-    font-size: 0.9rem; /* Adjust font sizes for better readability */
+  #refresh-button, #bingo-message, #bingo-datum {
+    font-size: 0.7rem; /* Reduce font size for medium screens */
   }
 }
 
 @media (max-width: 480px) {
-  body, html {
-    padding-top: 20px; /* Reduced top padding for very small screens */
-  }
-
-  #bingo-card {
-    grid-template-columns: 1fr; /* Single column for small screens */
+  .Game, .bingo-container {
+    width: 98%; /* Increase width to use more of the screen */
   }
 
   .bingo-cell {
-    height: 100px; /* Further adjusted height */
+    font-size: 0.6rem; /* Even smaller font size for mobile screens */
+    padding: 10px; /* Less padding for mobile */
+    height: 90px; /* Smaller height for mobile */
   }
 
-  #refresh-button {
-    padding: 8px 16px; /* Adjust button padding */
-  }
-
-  .neon-text {
-    text-shadow:
-      0 0 5px #f50057,
-      0 0 8px #f50057; /* Reduced glow effect for smaller screens */
+  #refresh-button, #bingo-message, #bingo-datum {
+    font-size: 0.6rem; /* Reduce font size for mobile screens */
   }
 }
-
