@@ -7,25 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function generateBingoCard() {
       card.innerHTML = '';
-      let images = [
-          'img.jpg', // Ensure paths are correct
-          'img2.jpg',
-          'img3.jpg',
-          'img4.jpg',
-          'img5.jpg',
-          'img6.jpg',
-          'img7.jpg',
-          'img8.jpg',
-          'img9.jpg'
+      let cardContents = [
+          'PETER KLIEN SPRICHT ÜBER DIE FPÖ',
+          'PETER KLIEN SAGT "GUTE NACHT ÖSTERREICH"',
+          'ALKOHOL IST IM BILD ZU SEHEN',
+          'PETER KLIEN SAGT "SIE WERDEN LACHEN, ES WIRD ERNST"',
+          'VERSAGEN DER ÖSTERREICHISCHEN POLITIK IST THEMA',
+          'PETER KLIEN VERÄPPELT ER:INNEN',
+          'PETER KLIEN SPRICHT ÜBER DIE ÖVP',
+          'ROTES ORF-MIKROFON IST IM BILD ZU SEHEN',
+          'DAS PUBLIKUM IM STUDIO LACHT'
       ];
 
       for (let i = 0; i < 9; i++) {
           const cell = document.createElement('div');
           cell.classList.add('bingo-cell');
-          const img = document.createElement('img');
-          img.src = images[i];
-          img.alt = 'Bingo image ' + (i + 1); // Added dynamic alt text
-          cell.appendChild(img);
+          cell.textContent = cardContents[i]; // Add text content instead of an image
           card.appendChild(cell);
 
           cell.addEventListener('click', function() {
@@ -36,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function checkBingo() {
-      const firstRowCells = Array.from(card.children).slice(0, 3); // Get only the first row cells
+      const firstRowCells = Array.from(card.children).slice(0, 3);
       const isBingo = firstRowCells.every(cell => cell.classList.contains('marked'));
 
       if (isBingo) {
