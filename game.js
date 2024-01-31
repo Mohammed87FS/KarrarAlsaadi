@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const card = document.getElementById('bingo-card');
-    const bingoMessage = document.getElementById('bingo-message');
+
+    const bingoMessageOverlay = document.querySelector('.bingo-message-overlay');
+    const bingoMessageContent = document.getElementById('bingo-message-content');
     document.getElementById('refresh-button').addEventListener('click', function() {
         location.reload();
     });
@@ -13,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'ALKOHOL IST IM BILD ZU SEHEN',
             'PETER KLIEN SAGT "SIE WERDEN LACHEN, ES WIRD ERNST"',
             'VERSAGEN DER ÖSTERREICHISCHEN POLITIK IST THEMA',
-            'PETER KLIEN VERÄPPELT ÖSTERREICHER:INNEN',
+            'PETER KLIEN VERÄPPELT ÖSTERREICHER: INNEN',
             'PETER KLIEN SPRICHT ÜBER DIE ÖVP',
             'ROTES ORF-MIKROFON IST IM BILD ZU SEHEN',
             'DAS PUBLIKUM IM STUDIO LACHT'
@@ -61,12 +63,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function showRefreshButton() {
-        bingoMessage.textContent = 'Bingo!';
-        bingoMessage.classList.add('show');
-        const refreshButton = document.getElementById('refresh-button');
-        refreshButton.style.display = 'block';
-    }
+  
+
+function showRefreshButton() {
+    setTimeout(function() {
+        location.reload(); // This will reload the page after a delay
+    }, 2000); 
+
+    
+    bingoMessageOverlay.style.display = 'flex'; // Display the overlay
+    bingoMessageContent.textContent = 'Bingo!'; // Set the winning message text
+
+  
+}
+
+    
+
 
     generateBingoCard();
 });
