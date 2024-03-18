@@ -1,0 +1,287 @@
+/* Color Variables */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #ffeedbf5;
+    --footer-background-color: #333;
+    --footer-text-color: #fff;
+    --button-hover-color: #000000;
+    --section-background-color: #e2e2e2;
+    --bio-section-background-color: #f0f0f0;
+    --link-color: #fff;
+    --border-color: #ddd;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../img/14.jpg");
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+
+  
+    margin: 0;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(57, 13, 0, 0.481); /* Black with 50% opacity */
+    z-index: 1; /* Ensure the overlay is above the background image */
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow:  
+                     0 0 30px rgba(255, 0, 0, 0.4), 
+                     0 0 40px rgba(255, 0, 0, 0.3), 
+                     0 0 50px rgba(255, 0, 0, 0.2), 
+                     0 0 60px rgba(255, 0, 0, 0.1);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(99, 6, 6, 0.9), 
+                     0 0 30px rgba(118, 22, 22, 0.7), 
+                    
+                     0 0 70px rgba(255, 0, 0, 0.3);
+    }
+}
+
+.hero h4 {
+    font-size: calc(40px + 1vw);
+    color: #ffffff; /* Adjust the text color as needed */
+    animation: glow 2s infinite alternate;
+    /* Additional styles for positioning and centering your text */
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+/* Ensure content is above the overlay */
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+
+header {
+    /* background: var(--secondary-color); */
+    color: var(--link-color);
+    padding: 1rem 0;
+    text-align: center;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s ease
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff; /* Change to fit your design */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff9962; /* Change to your highlight color */
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+.hero {
+
+    padding: 2rem;
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+
+    color: var(--link-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* General Styles */
+.section {
+    padding: 50px 0;
+    text-align: center;
+    border: solid 1px rgb(177, 95, 19) ;
+    height: 100%;
+}
+
+/* 
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+} */
+
+/* Gallery Container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust for responsiveness */
+    grid-gap: 40px; /* Space between items */
+    padding: 20px;
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+
+.download-icon {
+    color: rgb(177, 95, 19); /* Change icon color to orange */
+    font-size: 20px; /* Icon size */
+    text-decoration: none; /* Removes underline from links */
+    margin-left: 10px; /* Space between the photographer's name and the icon */
+}
+
+.download-icon:hover {
+    color: darkorange; /* Darker orange on hover for a subtle effect */
+}
+
+
+.image-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.photographer-name {
+    font-size: 0.8rem; /* Adjust as needed */
+    color: #fff; /* Adjust as needed */
+}
+
+.download-button {
+    background-color: var(--primary-color);
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem; /* Adjust as needed */
+}
+
+
+.container img {
+    width: 150px; /* Set fixed width */
+    height: 150px; /* Set fixed height */
+    object-fit: cover; /* This will crop the images to fit the size, potentially cutting off some parts */
+    border-radius: 10px; /* Optional: Adds rounded corners to your images */
+    border: solid 1px rgb(177, 95, 19);
+}
+
+
+
+
+
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--link-color);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+
+
+
+
+@media (max-width: 600px) {
+    .gallery img {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.contact-form button {
+    cursor: pointer;
+}
+.bio {
+    background-color:#180d04;
+    padding: 20px;
+    text-align: justify;font-size: large;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        text-align: center;
+    }
+
+    nav ul li {
+        display: block;
+    }
+}
