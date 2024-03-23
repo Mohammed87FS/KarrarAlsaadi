@@ -8,13 +8,14 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300,700" rel="stylesheet"> -->
 </head>
 <body>
-    <div class="content">
+  
 
-
-   
     <header>
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+        
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../music/Music.html">Music</a></li>
                 <li><a href="../bio/Biography.html">Biography</a></li>
@@ -23,6 +24,7 @@
             </ul>
         </nav>
     </header>
+   
 
     <!-- <section id="home" class="hero">
         <h4 style=" font-size: calc(40px + 1vw);">Karrar Alsaadi</h4>
@@ -51,6 +53,15 @@
          
         </div>
     </section>
-</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+        
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('nav-active'); // Toggle class to slide in the nav
+            });
+        });
+    </script>
 </body>
 </html>

@@ -14,17 +14,20 @@
 
 
    
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../music/Music.html">Music</a></li>
-                <li><a href="../bio/Biography.html">Biography</a></li>
-                <li><a href="../gal/Gallary.html">Gallery</a></li>
-                <li><a href="../contact/Contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../music/Music.html">Music</a></li>
+                    <li><a href="../bio/Biography.html">Biography</a></li>
+                    <li><a href="../gal/Gallary.html">Gallery</a></li>
+                    <li><a href="../contact/Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
 
    
@@ -224,7 +227,16 @@
 </div>
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
     
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('nav-active'); // Toggle class to slide in the nav
+        });
+    });
+</script>
     
 </body>
 </html>

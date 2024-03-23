@@ -35,16 +35,7 @@ body {
     margin: 0;
 }
 
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(57, 13, 0, 0.481); /* Black with 50% opacity */
-    z-index: 1; /* Ensure the overlay is above the background image */
-}
+
 
 @keyframes glow {
     0%, 100% {
@@ -84,60 +75,6 @@ body::before {
 }
 
 
-header {
-    /* background: var(--secondary-color); */
-    color: var(--link-color);
-    padding: 1rem 0;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
-    padding-right: 20px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: var(--link-color);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-size: 1.2em;
-    position: relative;
-    transition: color 0.3s ease
-}
-
-header nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ffffff; /* Change to fit your design */
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-header nav ul li a:hover {
-    color: #ff9962; /* Change to your highlight color */
-}
-
-header nav ul li a:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-}
 
 
 .hero {
@@ -213,12 +150,150 @@ header nav ul li a:hover::after {
     text-align: justify;font-size: large;
 }
 
+
+/* Media Queries for Responsive Adjustments */
 @media (max-width: 768px) {
+    .content-wrapper {
+        padding: 10px;
+    }
+
     nav ul {
-        text-align: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        display: block;
+        margin: 10px 0;
     }
+
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    .hero h4 {
+        font-size: calc(20px + 3vw);
+    }
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none; /* Hidden by default */
+    font-size: 2rem; /* Size of the hamburger icon */
+    background: none;
+    border: none;
+    color: var(--link-color); /* Use your color variable or specify a color */
+    cursor: pointer;
+    z-index: 20; /* Ensure it's above other content */
+
+}
+
+/* Responsive Navigation */
+.nav-links {
+    display: flex;
+    list-style: none;
+    transition: transform 0.3s ease-in;
+}
+
+/* Hide Navigation Links on Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show hamburger button on small screens */
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 60px; /* Adjust based on your header's height */
+        flex-direction: column;
+        width: 100%;
+        background-color:#180d04;
+        border: solid 1px rgb(177, 95, 19) ; /* Background of the dropdown, change as needed */
+        transform: translateY(-100vh); /* Hide off-screen */
+        text-align: center;
+        transition: transform 0.3s ease-in;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+/* Class to toggle on click */
+.nav-active {
+    transform: translateY(0);
+}
+
+
+
+
+@media (max-width: 480px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        font-size: 0.9em;
+    }
+
+    .hero h4 {
+        font-size: 20px;
+    }
+}
+
+
+
+
+header {
+    color: var(--link-color);
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 3;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff9962;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }

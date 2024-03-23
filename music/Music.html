@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="./music.css">
 </head>
 <body>
-<div class="content">
+
     <header>
+        <!-- Hamburger Menu Button -->
+        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+        
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="../music/Music.html">Music</a></li>
                 <li><a href="../bio/Biography.html">Biography</a></li>
@@ -19,6 +22,9 @@
             </ul>
         </nav>
     </header>
+
+    <div>
+ 
 
     <section id="biography" class="section bio">
         <h2>Songs:</h2>
@@ -78,6 +84,19 @@
             </div>
         </div>
     </section>
+
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('nav-active'); // Toggle class to slide in the nav
+        });
+    });
+</script>
+
+
 </body>
 </html>
