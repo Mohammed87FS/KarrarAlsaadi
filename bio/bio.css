@@ -131,19 +131,7 @@ body {
     }
 }
 
-/* Contact Form */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-}
 
-.contact-form button {
-    cursor: pointer;
-}
 .bio {
     background-color:#180d04;
     padding: 20px;
