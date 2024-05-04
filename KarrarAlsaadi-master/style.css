@@ -1,0 +1,340 @@
+Color Variables
+:root {
+    --primary-color: #000000;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #ffeedbf5;
+    --footer-background-color: #333;
+    --footer-text-color: #fff;
+    --button-hover-color: #000000;
+    --section-background-color: #e2e2e2;
+    --bio-section-background-color: #f0f0f0;
+    --link-color: #fff;
+    --border-color: #ddd;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #000000;
+    background-image: url("./16.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+.overlay{
+  background-color: #000000a8;
+}
+/* Content Area */
+.content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+/* Hero Section */
+/* #hero h4 {
+    border: solid 6px rgba(178, 170, 153, 0.473);
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #401c08;
+    font-size:10dvb;
+} */
+
+#hero h4 {
+  
+    border-radius: 15px;
+    padding: 10px 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold; /* Ensure consistency in font-weight declaration */
+    color: #dedede;
+    font-size: 5vw;
+    text-transform: uppercase;
+    text-shadow: 
+        3px 3px 5px rgba(0, 0, 0, 0.2),
+        -1px -1px 10px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.5),
+        -5px -5px 20px rgba(0, 0, 0, 0.3),
+        10px 10px 25px rgba(0, 0, 0, 0.6); /* Layered shadows for a dramatic effect */
+
+
+}
+
+
+@keyframes quiet {
+    25%{
+      transform: scaleY(.6);
+    }
+    50%{
+      transform: scaleY(.4);
+    }
+    75%{
+      transform: scaleY(.8);
+    }
+  }
+  
+  @keyframes normal {
+    25%{
+      transform: scaleY(1);
+    }
+    50%{
+      transform: scaleY(.4);
+    }
+    75%{
+      transform: scaleY(.6);
+    }
+  }
+  @keyframes loud {
+    25%{
+      transform: scaleY(1);
+    }
+    50%{
+      transform: scaleY(.4);
+    }
+    75%{
+      transform: scaleY(1.2);
+    }
+  }
+
+  .boxContainer{
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    --boxSize: 8px;
+    --gutter: 4px;
+    width: calc((var(--boxSize) + var(--gutter)) * 7);
+    border: solid 2px rgb(255, 255, 255);
+ padding:10px;
+    border-radius: 20px;
+  }
+  
+  .box{
+    transform: scaleY(.4);
+    height: 100%;
+    width: var(--boxSize);
+    background: #12E2DC;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    border-radius: 8px;
+     
+
+  }
+  
+  .box1{
+    animation-name: quiet;
+  }
+  
+  .box2{
+    animation-name: normal;
+  }
+  
+  .box3{
+    animation-name: quiet;
+  }
+  
+  .box4{
+    animation-name: loud;
+  }
+  
+  .box5{
+    animation-name: quiet;
+  }
+
+
+
+.section2 {
+    padding: 50px 0;
+    text-align: center;
+  
+    font-size: calc(50px + 1vw);
+ 
+    animation: glow 2s infinite alternate;
+    margin: 0;
+    min-height: 100vh;  /* Set minimum height to fill the viewport */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;  /* Center content vertically */
+    align-items: center;  /* Center content horizontally */
+}
+
+
+/* Animations */
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 30px rgba(255, 153, 0, 0.4), 0 0 40px rgba(255, 123, 0, 0.3), 0 0 50px rgba(255, 221, 0, 0.2), 0 0 60px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(99, 71, 6, 0.9), 0 0 30px rgba(118, 89, 22, 0.7), 0 0 70px rgba(255, 115, 0, 0.3);
+    }
+}
+
+/* Sections and General Styles */
+/* Section Styling */
+.section {
+    padding: 100px 0;  /* Vertical padding for spacing above and below the content */
+    text-align: center;  /* Center aligns all text within the section */
+    color:#12e2dbcf;  /* Light grey text color for better visibility on dark backgrounds */
+ 
+    font-size: 20px;  /* Optional: dark background for contrast (you can change or remove this) */
+}
+
+/* Container Styling */
+.container {
+    /* border: solid 1px #12E2DC; */
+    border-radius: 15px;
+    max-width: 1200px;  /* Maximum width of the container to ensure content is not too stretched on larger screens */
+    margin: 0 auto;  /* Centers the container horizontally */
+    padding: 50px 50px;  /* Horizontal padding for some spacing from the container edge */
+    display: grid;  /* Using grid layout for flexible and advanced layout options */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));  /* Responsive columns that automatically fill the available space */
+    gap: 20px;  /* Space between grid items */
+    justify-items: center;  /* Centers grid items horizontally within their cells */
+    align-items: center;  /* Centers grid items vertically within their cells */
+    border-radius: 8px;  /* Optional: rounded corners for the container (you can change or remove this) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Optional: adds subtle shadow for depth (you can change or remove this) */
+    background: #000000;  /* Optional: medium-dark background for the container (you can change or remove this) */
+}
+.container2 {
+
+    /* border: solid 1px #12E2DC; */
+    border-radius: 15px;
+    max-width: 1200px;  /* Maximum width of the container to ensure content is not too stretched on larger screens */
+    margin: 0 auto;  /* Centers the container horizontally */
+    padding: 20px 20px;  /* Horizontal padding for some spacing from the container edge */
+   
+    justify-items: center;  /* Centers grid items horizontally within their cells */
+    align-items: center;  /* Centers grid items vertically within their cells */
+    border-radius: 8px;  /* Optional: rounded corners for the container (you can change or remove this) */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  /* Optional: adds subtle shadow for depth (you can change or remove this) */
+    background: #000000;  /* Optional: medium-dark background for the container (you can change or remove this) */
+}
+
+/* Navigation Styles */
+header {
+  width: 100%; /* Ensures the header spans the entire width of the viewport */
+  top: 0; /* Positions the header at the top of the viewport */
+  left: 0; /* Aligns the header to the left edge of the viewport */
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+  position: fixed;
+  z-index: 1000; /* A higher value to ensure it stays on top of other content */
+  background-color: rgba(0, 0, 0); /* Optional: adds transparency to the background */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures nav takes full width within header */
+  padding: 0 20px; /* Adjust padding as needed */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* This centers the list items horizontally */
+  align-items: center; /* This vertically centers the list items */
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 0 10px; /* Space between menu items */
+
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2em;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:hover::after {
+    color: #12E2DC;
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #12E2DC;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 60px;
+        flex-direction: column;
+        width: 100%;
+        background-color:black;
+        border: solid 1px white;
+        transform: translateY(-100vh);
+        transition: transform 0.3s ease-in;
+    }
+
+    .nav-links.nav-active {
+        transform: translateY(0);
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+/* Footer Styles */
+footer {
+    padding: 1rem;
+    text-align: center;
+   
+    color: white;
+    width: 100%;
+}
+button{
+    background: none;
+    border: solid 1px #ffffff;
+    border-radius: 0px;
+    cursor: pointer;
+}
